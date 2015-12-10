@@ -7,6 +7,8 @@
 
 
 	var defaultConfig = {
+		scaleHeightMultiplier: 1,
+
 		//Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
 		scaleBeginAtZero : true,
 
@@ -397,7 +399,7 @@
 
 			var scaleOptions = {
 				templateString : this.options.scaleLabel,
-				height : this.chart.height,
+				height : this.chart.height * this.options.scaleHeightMultiplier,
 				width : this.chart.width,
 				ctx : this.chart.ctx,
 				textColor : this.options.scaleFontColor,
@@ -476,7 +478,7 @@
 				base : this.scale.endPoint
 			});
 			var newScaleProps = helpers.extend({
-				height : this.chart.height,
+				height : this.chart.height * this.options.scaleHeightMultiplier,
 				width : this.chart.width
 			});
 
