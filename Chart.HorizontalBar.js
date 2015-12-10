@@ -113,10 +113,18 @@
 					return ((this.endPoint - this.startPoint) / this.yLabels.length) - (2*options.barValueSpacing);
 				},
 				calculateBarHeight : function(datasetCount){
-					//The padding between datasets is to the right of each bar, providing that there are more than 1 dataset
-					var baseHeight = this.calculateBaseHeight() - ((datasetCount) * options.barDatasetSpacing);
 
-					return (baseHeight / datasetCount);
+					if (options.isFixedHeight) {
+
+						return options.barHeight;
+
+					} else {
+
+						//The padding between datasets is to the right of each bar, providing that there are more than 1 dataset
+						var baseHeight = this.calculateBaseHeight() - ((datasetCount) * options.barDatasetSpacing);
+
+						return (baseHeight / datasetCount);
+					}
 				},
 
 				calculateXInvertXY : function(value) {
